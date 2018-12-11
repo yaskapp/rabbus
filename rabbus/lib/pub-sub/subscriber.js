@@ -10,7 +10,7 @@ var Consumer = require("../consumer");
 
 function Subscriber(rabbit, options){
   if(options.forceUniqueName){
-    if (_.isObject(options.queue){
+    if (_.isObject(options.queue)){
       options.queue.name = getUniqueName(options.queue.name);
     } else {
       options.queue = getUniqueName(options.queue);
