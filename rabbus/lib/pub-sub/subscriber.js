@@ -9,10 +9,12 @@ var Consumer = require("../consumer");
 // --------
 
 function Subscriber(rabbit, options){
-  if (_.isObject(options.queue)){
-    options.queue.name = getUniqueName(options.queue.name);
-  } else {
-    options.queue = getUniqueName(options.queue);
+  if(options.forceUniqueName){
+    if (_.isObject(options.queue){
+      options.queue.name = getUniqueName(options.queue.name);
+    } else {
+      options.queue = getUniqueName(options.queue);
+    }
   }
 
   Consumer.call(this, rabbit, options, defaults);
